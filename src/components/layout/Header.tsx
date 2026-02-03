@@ -1,11 +1,20 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, MapPin, Phone, User, Search } from "lucide-react";
+import { Menu, X, MapPin, Phone, User, Search, LogOut } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useAuth } from "@/contexts/AuthContext";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, signOut } = useAuth();
 
   const navLinks = [
     { href: "/", label: "Trang chủ" },
@@ -75,12 +84,44 @@ const Header = () => {
               <Button variant="ghost" size="icon">
                 <Search className="w-5 h-5" />
               </Button>
-              <Button variant="outline" className="gap-2">
-                <User className="w-4 h-4" />
-                Đăng nhập
-              </Button>
-              <Button variant="ocean">
-                Đặt tour ngay
+              
+              {user ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="outline" className="gap-2">
+                      <User className="w-4 h-4" />
+                      {user.user_metadata?.full_name || user.email?.split('@')[0]}
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-48">
+                    <DropdownMenuItem asChild>
+                      <Link to="/tai-khoan" className="cursor-pointer">
+                        Tài khoản của tôi
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/dat-cho" className="cursor-pointer">
+                        Đơn đặt của tôi
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={() => signOut()} className="text-destructive cursor-pointer">
+                      <LogOut className="w-4 h-4 mr-2" />
+                      Đăng xuất
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <Button variant="outline" className="gap-2" asChild>
+                  <Link to="/dang-nhap">
+                    <User className="w-4 h-4" />
+                    Đăng nhập
+                  </Link>
+                </Button>
+              )}
+              
+              <Button variant="ocean" asChild>
+                <Link to="/tour">Đặt tour ngay</Link>
               </Button>
             </div>
 
@@ -115,12 +156,35 @@ const Header = () => {
                   </Link>
                 ))}
                 <div className="pt-4 border-t border-border space-y-3">
-                  <Button variant="outline" className="w-full gap-2">
-                    <User className="w-4 h-4" />
-                    Đăng nhập
-                  </Button>
-                  <Button variant="ocean" className="w-full">
-                    Đặt tour ngay
+                  {user ? (
+                    <>
+                      <div className="py-2 text-foreground font-medium">
+                        Xin chào, {user.user_metadata?.full_name || user.email?.split('@')[0]}
+                      </div>
+                      <Button 
+                        variant="outline" 
+                        className="w-full gap-2"
+                        onClick={() => {
+                          signOut();
+                          setIsMenuOpen(false);
+                        }}
+                      >
+                        <LogOut className="w-4 h-4" />
+                        Đăng xuất
+                      </Button>
+                    </>
+                  ) : (
+                    <Button variant="outline" className="w-full gap-2" asChild>
+                      <Link to="/dang-nhap" onClick={() => setIsMenuOpen(false)}>
+                        <User className="w-4 h-4" />
+                        Đăng nhập
+                      </Link>
+                    </Button>
+                  )}
+                  <Button variant="ocean" className="w-full" asChild>
+                    <Link to="/tour" onClick={() => setIsMenuOpen(false)}>
+                      Đặt tour ngay
+                    </Link>
                   </Button>
                 </div>
               </div>
