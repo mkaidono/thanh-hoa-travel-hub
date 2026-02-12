@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, MapPin, Phone, User, Search, LogOut } from "lucide-react";
+import { Menu, X, MapPin, Phone, User, Search, LogOut, Palmtree } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/contexts/AuthContext";
 import {
@@ -55,7 +55,7 @@ const Header = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-xl gradient-ocean flex items-center justify-center shadow-soft">
-                <span className="text-primary-foreground font-display font-bold text-xl">TH</span>
+                <Palmtree className="w-6 h-6 text-primary-foreground" />
               </div>
               <div>
                 <h1 className="font-display font-bold text-xl text-foreground">
