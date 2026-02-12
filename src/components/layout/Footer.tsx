@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Facebook, Instagram, Youtube } from "lucide-react";
+import { MapPin, Phone, Mail, Facebook, Instagram, Youtube, Palmtree } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 rounded-xl gradient-ocean flex items-center justify-center">
-                <span className="text-primary-foreground font-display font-bold text-xl">TH</span>
+                <Palmtree className="w-6 h-6 text-primary-foreground" />
               </div>
               <div>
                 <h3 className="font-display font-bold text-xl">Thanh Hóa</h3>
@@ -39,11 +39,11 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-semibold text-lg mb-6">Điểm đến</h4>
             <ul className="space-y-3 text-sm opacity-80">
-              <li><Link to="/diem-den/sam-son" className="hover:text-primary transition-colors">Biển Sầm Sơn</Link></li>
-              <li><Link to="/diem-den/hai-tien" className="hover:text-primary transition-colors">Biển Hải Tiến</Link></li>
-              <li><Link to="/diem-den/pu-luong" className="hover:text-primary transition-colors">Khu bảo tồn Pù Luông</Link></li>
-              <li><Link to="/diem-den/thanh-nha-ho" className="hover:text-primary transition-colors">Thành Nhà Hồ</Link></li>
-              <li><Link to="/diem-den/lam-kinh" className="hover:text-primary transition-colors">Khu di tích Lam Kinh</Link></li>
+              <li><Link to="/diem-den" className="hover:text-primary transition-colors">Biển Sầm Sơn</Link></li>
+              <li><Link to="/diem-den" className="hover:text-primary transition-colors">Biển Hải Tiến</Link></li>
+              <li><Link to="/diem-den" className="hover:text-primary transition-colors">Khu bảo tồn Pù Luông</Link></li>
+              <li><Link to="/diem-den" className="hover:text-primary transition-colors">Thành Nhà Hồ</Link></li>
+              <li><Link to="/diem-den" className="hover:text-primary transition-colors">Khu di tích Lam Kinh</Link></li>
             </ul>
           </div>
 
@@ -53,9 +53,9 @@ const Footer = () => {
             <ul className="space-y-3 text-sm opacity-80">
               <li><Link to="/tour" className="hover:text-primary transition-colors">Tour du lịch</Link></li>
               <li><Link to="/khach-san" className="hover:text-primary transition-colors">Đặt phòng khách sạn</Link></li>
-              <li><Link to="/combo" className="hover:text-primary transition-colors">Combo nghỉ dưỡng</Link></li>
-              <li><Link to="/xe" className="hover:text-primary transition-colors">Thuê xe du lịch</Link></li>
-              <li><Link to="/huong-dan" className="hover:text-primary transition-colors">Hướng dẫn viên</Link></li>
+              <li><Link to="/tour" className="hover:text-primary transition-colors">Combo nghỉ dưỡng</Link></li>
+              <li><Link to="/lien-he" className="hover:text-primary transition-colors">Thuê xe du lịch</Link></li>
+              <li><Link to="/lien-he" className="hover:text-primary transition-colors">Hướng dẫn viên</Link></li>
             </ul>
           </div>
 
@@ -85,8 +85,8 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-70">
           <p>© 2024 Du lịch Thanh Hóa. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link to="/chinh-sach" className="hover:text-primary transition-colors">Chính sách bảo mật</Link>
-            <Link to="/dieu-khoan" className="hover:text-primary transition-colors">Điều khoản sử dụng</Link>
+            <Link to="/lien-he" className="hover:text-primary transition-colors">Chính sách bảo mật</Link>
+            <Link to="/lien-he" className="hover:text-primary transition-colors">Điều khoản sử dụng</Link>
           </div>
         </div>
       </div>

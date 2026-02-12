@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 import destSamSon from "@/assets/dest-sam-son.jpg";
 import destHaiTien from "@/assets/dest-hai-tien.jpg";
@@ -139,9 +140,11 @@ const DestinationsSection = () => {
                     <MapPin className="w-4 h-4" />
                     {destinations[0].tours} tour có sẵn
                   </span>
-                  <Button variant="heroOutline" size="sm" className="gap-2 py-2 px-4">
-                    Khám phá
-                    <ArrowRight className="w-4 h-4" />
+                  <Button variant="heroOutline" size="sm" className="gap-2 py-2 px-4" asChild>
+                    <Link to="/diem-den">
+                      Khám phá
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
                   </Button>
                 </div>
               </div>
@@ -189,9 +192,11 @@ const DestinationsSection = () => {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <Button variant="outline" size="lg" className="gap-2">
-            Xem tất cả điểm đến
-            <ArrowRight className="w-4 h-4" />
+          <Button variant="outline" size="lg" className="gap-2" asChild>
+            <Link to="/diem-den">
+              Xem tất cả điểm đến
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </Button>
         </motion.div>
       </div>

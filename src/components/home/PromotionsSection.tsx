@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Sparkles, Clock, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const promotions = [
   {
@@ -93,9 +94,12 @@ const PromotionsSection = () => {
                     variant="heroOutline"
                     size="sm"
                     className="gap-2 px-6"
+                    asChild
                   >
-                    Sử dụng ngay
-                    <ArrowRight className="w-4 h-4" />
+                    <Link to="/tour">
+                      Sử dụng ngay
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
                   </Button>
                 </div>
               </div>
