@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CTASection = () => {
   return (
@@ -39,13 +40,17 @@ const CTASection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="ocean" size="xl" className="gap-3">
-              <Phone className="w-5 h-5" />
-              1900 1234
+            <Button variant="ocean" size="xl" className="gap-3" asChild>
+              <a href="tel:19001234">
+                <Phone className="w-5 h-5" />
+                1900 1234
+              </a>
             </Button>
-            <Button variant="outline" size="xl" className="gap-3">
-              <MessageCircle className="w-5 h-5" />
-              Chat với tư vấn viên
+            <Button variant="outline" size="xl" className="gap-3" asChild>
+              <Link to="/lien-he">
+                <MessageCircle className="w-5 h-5" />
+                Chat với tư vấn viên
+              </Link>
             </Button>
           </div>
 

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Clock, Users, Star, Heart, ArrowRight, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { useTours } from "@/hooks/useTours";
 import BookingModal from "@/components/booking/BookingModal";
 
@@ -57,10 +58,10 @@ const ToursSection = () => {
             transition={{ delay: 0.2 }}
           >
             <Button variant="outline" className="gap-2 mt-4 md:mt-0" asChild>
-              <a href="/tour">
+              <Link to="/tour">
                 Xem tất cả tour
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
             </Button>
           </motion.div>
         </div>

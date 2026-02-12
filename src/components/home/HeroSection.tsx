@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Search, Calendar, Users, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-sam-son.jpg";
 
 const HeroSection = () => {
@@ -41,11 +42,11 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Button variant="hero">
-              Khám phá ngay
+            <Button variant="hero" asChild>
+              <Link to="/diem-den">Khám phá ngay</Link>
             </Button>
-            <Button variant="heroOutline">
-              Xem video giới thiệu
+            <Button variant="heroOutline" asChild>
+              <Link to="/tour">Xem tour du lịch</Link>
             </Button>
           </div>
         </motion.div>
@@ -114,11 +115,11 @@ const HeroSection = () => {
             {/* Quick links */}
             <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-border">
               <span className="text-sm text-muted-foreground">Phổ biến:</span>
-              <button className="text-sm text-primary hover:underline">Tour Sầm Sơn 2N1Đ</button>
+              <Link to="/tour" className="text-sm text-primary hover:underline">Tour Sầm Sơn 2N1Đ</Link>
               <span className="text-muted-foreground">•</span>
-              <button className="text-sm text-primary hover:underline">Pù Luông nghỉ dưỡng</button>
+              <Link to="/tour" className="text-sm text-primary hover:underline">Pù Luông nghỉ dưỡng</Link>
               <span className="text-muted-foreground">•</span>
-              <button className="text-sm text-primary hover:underline">Combo khách sạn 5*</button>
+              <Link to="/khach-san" className="text-sm text-primary hover:underline">Combo khách sạn 5*</Link>
             </div>
           </div>
         </motion.div>
