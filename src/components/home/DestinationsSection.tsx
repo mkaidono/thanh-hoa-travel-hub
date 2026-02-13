@@ -158,29 +158,31 @@ const DestinationsSection = () => {
               variants={itemVariants}
               className="group cursor-pointer"
             >
-              <div className="relative h-[280px] rounded-2xl overflow-hidden shadow-card">
-                <img
-                  src={dest.image}
-                  alt={dest.name}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <span className="inline-block px-3 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-full mb-2">
-                    {dest.category}
-                  </span>
-                  <h3 className="font-display text-xl font-bold text-primary-foreground mb-1">
-                    {dest.name}
-                  </h3>
-                  <p className="text-primary-foreground/70 text-sm line-clamp-2 mb-3">
-                    {dest.description}
-                  </p>
-                  <span className="flex items-center gap-2 text-primary-foreground/60 text-xs">
-                    <MapPin className="w-3 h-3" />
-                    {dest.tours} tour có sẵn
-                  </span>
+              <Link to="/tour">
+                <div className="relative h-[280px] rounded-2xl overflow-hidden shadow-card">
+                  <img
+                    src={dest.image}
+                    alt={dest.name}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <span className="inline-block px-3 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-full mb-2">
+                      {dest.category}
+                    </span>
+                    <h3 className="font-display text-xl font-bold text-primary-foreground mb-1">
+                      {dest.name}
+                    </h3>
+                    <p className="text-primary-foreground/70 text-sm line-clamp-2 mb-3">
+                      {dest.description}
+                    </p>
+                    <span className="flex items-center gap-2 text-primary-foreground/60 text-xs">
+                      <MapPin className="w-3 h-3" />
+                      {dest.tours} tour có sẵn
+                    </span>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
