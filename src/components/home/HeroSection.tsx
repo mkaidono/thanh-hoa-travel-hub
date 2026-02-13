@@ -1,10 +1,16 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Search, Calendar, Users, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-sam-son.jpg";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    navigate("/tour");
+  };
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background image */}
@@ -105,7 +111,7 @@ const HeroSection = () => {
 
               {/* Search button */}
               <div className="flex items-end">
-                <Button variant="ocean" className="w-full py-6 text-base font-semibold gap-2">
+                <Button variant="ocean" className="w-full py-6 text-base font-semibold gap-2" onClick={handleSearch}>
                   <Search className="w-5 h-5" />
                   Tìm kiếm
                 </Button>

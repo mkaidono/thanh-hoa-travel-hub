@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
@@ -177,9 +178,11 @@ const DestinationsPage = () => {
                       ))}
                     </div>
 
-                    <Button variant="ocean" className="gap-2">
-                      Khám phá ngay
-                      <ArrowRight className="w-4 h-4" />
+                    <Button variant="ocean" className="gap-2" asChild>
+                      <Link to="/tour">
+                        Khám phá ngay
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
                     </Button>
                   </div>
                 </div>
