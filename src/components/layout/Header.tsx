@@ -41,9 +41,9 @@ const Header = () => {
             </span>
           </div>
           <div className="flex items-center gap-4">
-            <button className="hover:text-accent transition-colors">VI</button>
+            <button className="font-bold text-accent transition-colors">VI</button>
             <span className="opacity-50">|</span>
-            <button className="hover:text-accent transition-colors">EN</button>
+            <a href="https://translate.google.com/translate?sl=vi&tl=en&u=" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">EN</a>
           </div>
         </div>
       </div>
@@ -81,8 +81,10 @@ const Header = () => {
 
             {/* Actions */}
             <div className="hidden lg:flex items-center gap-4">
-              <Button variant="ghost" size="icon">
-                <Search className="w-5 h-5" />
+              <Button variant="ghost" size="icon" asChild>
+                <Link to="/tour">
+                  <Search className="w-5 h-5" />
+                </Link>
               </Button>
               
               {user ? (

@@ -13,6 +13,7 @@ import NewsPage from "./pages/NewsPage";
 import ContactPage from "./pages/ContactPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
+import NewsDetailPage from "./pages/NewsDetailPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/tour" element={<ToursPage />} />
             <Route path="/khach-san" element={<HotelsPage />} />
             <Route path="/tin-tuc" element={<NewsPage />} />
+            <Route path="/tin-tuc/:id" element={<NewsDetailPage />} />
             <Route path="/lien-he" element={<ContactPage />} />
             <Route path="/dang-nhap" element={<LoginPage />} />
             <Route path="/dang-ky" element={<SignupPage />} />

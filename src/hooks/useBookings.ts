@@ -49,8 +49,26 @@ export const useCreateBooking = () => {
       if (error) throw error;
       return data;
     },
-    onSuccess: () => {
+    onSuccess: (data, variables) => {
       queryClient.invalidateQueries({ queryKey: ["bookings"] });
+      
+      // Send email notification
+      supabase.auth.getUser().then(({ data: { user } }) => {
+        supabase.functions.invoke("send-booking-email", {
+          body: {
+            bookingType: variables.booking_type,
+            itemName: (variables as any)._itemName || "Đơn đặt",
+            checkInDate: variables.check_in_date,
+            checkOutDate: variables.check_out_date,
+            guests: variables.guests,
+            totalPrice: variables.total_price,
+            notes: variables.notes,
+            userName: user?.user_metadata?.full_name || "",
+            userEmail: user?.email || "",
+          },
+        });
+      });
+
       toast({
         title: "Đặt thành công!",
         description: "Chúng tôi sẽ liên hệ với bạn sớm nhất",

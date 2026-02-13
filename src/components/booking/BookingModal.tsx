@@ -69,7 +69,8 @@ const BookingModal = ({ open, onOpenChange, type, item }: BookingModalProps) => 
       guests,
       total_price: calculateTotal(),
       notes: notes || null,
-    });
+      _itemName: item.name,
+    } as any);
 
     onOpenChange(false);
     setCheckInDate("");
