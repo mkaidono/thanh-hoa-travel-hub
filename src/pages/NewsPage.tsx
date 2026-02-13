@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
@@ -85,12 +86,12 @@ const NewsPage = () => {
         <section className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {articles.map((article, index) => (
+              <Link key={article.id} to={`/tin-tuc/${article.id}`}>
               <motion.article
-                key={article.id}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300"
+                className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 cursor-pointer"
               >
                 {/* Image */}
                 <div className="relative h-52 overflow-hidden">
@@ -134,6 +135,7 @@ const NewsPage = () => {
                   </div>
                 </div>
               </motion.article>
+              </Link>
             ))}
           </div>
 
